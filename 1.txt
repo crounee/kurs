@@ -1,0 +1,90 @@
+CREATE TABLE Должности
+(
+  Код_должности INT NOT NULL,
+  Наименование_должности VARCHAR NOT NULL,
+  Оклад INT NOT NULL,
+  Обязанности VARCHAR NOT NULL,
+  Требования VARCHAR NOT NULL,
+  PRIMARY KEY (Код_должности)
+);
+
+CREATE TABLE Материалы
+(
+  Код_материала INT NOT NULL,
+  Наименование VARCHAR NOT NULL,
+  Упаковка VARCHAR NOT NULL,
+  Описание VARCHAR NOT NULL,
+  Цена INT NOT NULL,
+  PRIMARY KEY (Код_материала)
+);
+
+CREATE TABLE Заказчики
+(
+  Код_заказчика INT NOT NULL,
+  ФИО VARCHAR NOT NULL,
+  Адрес VARCHAR NOT NULL,
+  Телефон INT NOT NULL,
+  Паспортные_данные INT NOT NULL,
+  PRIMARY KEY (Код_заказчика)
+);
+
+CREATE TABLE сотрудники
+(
+  Код_сотрудника INT NOT NULL,
+  ФИО VARCHAR NOT NULL,
+  Возраст INT NOT NULL,
+  Пол INT NOT NULL,
+  Адрес VARCHAR NOT NULL,
+  Телефон INT NOT NULL,
+  Паспортные_данные INT NOT NULL,
+  Код_должности INT NOT NULL,
+  Код_должности INT NOT NULL,
+  PRIMARY KEY (Код_сотрудника),
+  FOREIGN KEY (Код_должности) REFERENCES Должности(Код_должности)
+);
+
+CREATE TABLE Виды_работ
+(
+  Код_вида INT NOT NULL,
+  цена_работы INT NOT NULL,
+  описание VARCHAR NOT NULL,
+  наименование VARCHAR NOT NULL,
+  Код_материала_1 INT NOT NULL,
+  код_материала_2 INT NOT NULL,
+  код_материала_3 INT NOT NULL,
+  PRIMARY KEY (Код_вида),
+  FOREIGN KEY (Код_материала_1) REFERENCES Материалы(Код_материала),
+  FOREIGN KEY (код_материала_2) REFERENCES Материалы(Код_материала),
+  FOREIGN KEY (код_материала_3) REFERENCES Материалы(Код_материала)
+);
+
+CREATE TABLE Бригады
+(
+  Код_бригады INT NOT NULL,
+  Код_сотрудника_2 INT NOT NULL,
+  Код_сотрудника_3 INT NOT NULL,
+  Код_сотрудника_1 INT NOT NULL,
+  PRIMARY KEY (Код_бригады),
+  FOREIGN KEY (Код_сотрудника_2) REFERENCES сотрудники(Код_сотрудника),
+  FOREIGN KEY (Код_сотрудника_3) REFERENCES сотрудники(Код_сотрудника),
+  FOREIGN KEY (Код_сотрудника_1) REFERENCES сотрудники(Код_сотрудника)
+);
+
+CREATE TABLE Заказы
+(
+  Код_заказчика INT NOT NULL,
+  Отметка_о_завершении VARCHAR NOT NULL,
+  Об_оплате VARCHAR NOT NULL,
+  Дата_окончания DATE NOT NULL,
+  Дата_начала DATE NOT NULL,
+  Стоимость INT NOT NULL,
+  Код_бригады INT NOT NULL,
+  Код_сотрудника INT,
+  Код_заказчика INT NOT NULL,
+  Код_вида INT,
+  PRIMARY KEY (Код_заказчика),
+  FOREIGN KEY (Код_бригады) REFERENCES Бригады(Код_бригады),
+  FOREIGN KEY (Код_сотрудника) REFERENCES сотрудники(Код_сотрудника),
+  FOREIGN KEY (Код_заказчика) REFERENCES Заказчики(Код_заказчика),
+  FOREIGN KEY (Код_вида) REFERENCES Виды_работ(Код_вида)
+);
