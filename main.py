@@ -134,6 +134,40 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
 
     def all_information_bd(self):
         try:
+
+            ###windows
+            self.main_1 = QtWidgets.QMainWindow()
+            self.window1 = QtWidgets.QWidget()
+            self.lay1_window1 = QtWidgets.QGridLayout(self.window1)
+
+
+            self.main_2 = QtWidgets.QMainWindow()
+            self.window2 = QtWidgets.QWidget()
+            self.lay2_window2 = QtWidgets.QGridLayout(self.window2)
+
+            self.main_3 = QtWidgets.QMainWindow()
+            self.window3 = QtWidgets.QWidget()
+            self.lay3_window3 = QtWidgets.QGridLayout(self.window3)
+
+            self.main_4 = QtWidgets.QMainWindow()
+            self.window4 = QtWidgets.QWidget()
+            self.lay4_window4 = QtWidgets.QGridLayout(self.window4)
+
+            self.main_5 = QtWidgets.QMainWindow()
+            self.window5 = QtWidgets.QWidget()
+            self.lay5_window5 = QtWidgets.QGridLayout(self.window5)
+
+            self.main_6 = QtWidgets.QMainWindow()
+            self.window6 = QtWidgets.QWidget()
+            self.lay6_window6 = QtWidgets.QGridLayout(self.window6)
+
+            self.main_7 = QtWidgets.QMainWindow()
+            self.window7 = QtWidgets.QWidget()
+            self.lay7_window7 = QtWidgets.QGridLayout(self.window7)
+
+            ###
+
+            self.tab = QtWidgets.QTabWidget()
             self.all_info = QtWidgets.QMainWindow()
             self.all_info.setWindowTitle('Строительная компания')
             self.all_info.setWindowIcon(QtGui.QIcon('1.jpg'))
@@ -150,9 +184,11 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.table_1.setHorizontalHeaderLabels(['code_brigades','code_employee_1','code_employee_2','code_employee_3'])
             self.table_1.setFixedSize(600,150)
             self.but_update_table_1 = QtWidgets.QPushButton('Обновить brigadees')
+            self.but_update_table_1.setFixedSize(150,30)
             self.but_update_table_1.clicked.connect(self.update_brigades)
 
             self.but_save_table_1 = QtWidgets.QPushButton('Сохранить изменения')
+            self.but_save_table_1.setFixedSize(150,30)
             self.but_save_table_1.clicked.connect(self.update_table_1)
 
             self.but_chose = QtWidgets.QComboBox()
@@ -163,7 +199,9 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.lay_delete_1 = QtWidgets.QVBoxLayout()
             self.lay_delete_1.setSpacing(0)
             self.delete_table_1 = QtWidgets.QPushButton('Удалить данные')
+            self.delete_table_1.setFixedSize(150,30)
             self.delete_table_1_line_table = QtWidgets.QLineEdit('Введите Code_brigades для удаления')
+            self.delete_table_1_line_table.setFixedSize(150,30)
             self.delete_table_1.clicked.connect(self.delete_table_1_1)
             self.lay_delete_1.addWidget(self.delete_table_1)
             self.lay_delete_1.addWidget(self.delete_table_1_line_table)
@@ -183,11 +221,11 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.lay_add_brigades.addWidget(self.add_table_1_zapis_3)
             self.lay_add_brigades.addWidget(self.add_table_1_zapis_4)
 
-            self.lay_grid.addWidget(self.table_1,0,1)
-            self.lay_grid.addWidget(self.but_update_table_1,0,2)
-            self.lay_grid.addWidget(self.but_save_table_1,0,3)
-            self.lay_grid.addLayout(self.lay_delete_1,0,4)
-            self.lay_grid.addLayout(self.lay_add_brigades,0,5)
+            self.lay1_window1.addWidget(self.table_1,1,0)
+            self.lay1_window1.addWidget(self.but_update_table_1,0,0)
+            self.lay1_window1.addWidget(self.but_save_table_1,0,1)
+            self.lay1_window1.addLayout(self.lay_delete_1,2,0)
+            self.lay1_window1.addLayout(self.lay_add_brigades,2,1)
 
 
             self.table_2 = QtWidgets.QTableWidget()
@@ -197,15 +235,19 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.table_2.setFixedSize(600,150)
             self.but_update_table_2 = QtWidgets.QPushButton('обновить customers')
             self.but_update_table_2.clicked.connect(self.update_customers)
+            self.but_update_table_2.setFixedSize(150,30)
 
             self.but_save_table_2 = QtWidgets.QPushButton('Сохранить изменения')
             self.but_save_table_2.clicked.connect(self.update_table_2)
+            self.but_save_table_2.setFixedSize(150,30)
 
             ##delete_table_2
             self.lay_delete_2 = QtWidgets.QVBoxLayout()
             self.lay_delete_2.setSpacing(0)
             self.delete_table_2 = QtWidgets.QPushButton('Удалить данные')
+            self.delete_table_2.setFixedSize(150,30)
             self.delete_table_2_line_table = QtWidgets.QLineEdit('Введите code_customer для удаления')
+            self.delete_table_2_line_table.setFixedSize(150,30)
             self.delete_table_2.clicked.connect(self.delete_table_2_1)
             self.lay_delete_2.addWidget(self.delete_table_2)
             self.lay_delete_2.addWidget(self.delete_table_2_line_table)
@@ -228,11 +270,11 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.lay_add_customers.addWidget(self.add_table_2_zapis_5)
 
 
-            self.lay_grid.addWidget(self.table_2,1,1)
-            self.lay_grid.addWidget(self.but_update_table_2,1,2)
-            self.lay_grid.addWidget(self.but_save_table_2,1,3)
-            self.lay_grid.addLayout(self.lay_delete_2,1,4)
-            self.lay_grid.addLayout(self.lay_add_customers,1,5)
+            self.lay2_window2.addWidget(self.table_2,1,0)
+            self.lay2_window2.addWidget(self.but_update_table_2,0,0)
+            self.lay2_window2.addWidget(self.but_save_table_2,0,1)
+            self.lay2_window2.addLayout(self.lay_delete_2,2,0)
+            self.lay2_window2.addLayout(self.lay_add_customers,2,1)
 
 
 
@@ -242,16 +284,20 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.table_3.setHorizontalHeaderLabels(['code_material', 'name', 'packaging', 'description', 'coast'])
             self.table_3.setFixedSize(600,150)
             self.but_update_table_3 = QtWidgets.QPushButton('обновить materials')
+            self.but_update_table_3.setFixedSize(150,30)
             self.but_update_table_3.clicked.connect(self.update_materials)
 
             self.but_save_table_3 = QtWidgets.QPushButton('Сохранить изменения')
             self.but_save_table_3.clicked.connect(self.update_table_3)
+            self.but_save_table_3.setFixedSize(150,30)
 
             ##delete_table_3
             self.lay_delete_3 = QtWidgets.QVBoxLayout()
             self.lay_delete_3.setSpacing(0)
             self.delete_table_3 = QtWidgets.QPushButton('Удалить данные')
+            self.delete_table_3.setFixedSize(150,30)
             self.delete_table_3_line_table = QtWidgets.QLineEdit('Введите code_material для удаления')
+            self.delete_table_3_line_table.setFixedSize(150,30)
             self.delete_table_3.clicked.connect(self.delete_table_3_1)
             self.lay_delete_3.addWidget(self.delete_table_3)
             self.lay_delete_3.addWidget(self.delete_table_3_line_table)
@@ -273,11 +319,11 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.lay_add_materials.addWidget(self.add_table_3_zapis_4)
             self.lay_add_materials.addWidget(self.add_table_3_zapis_5)
 
-            self.lay_grid.addWidget(self.table_3,3,1)
-            self.lay_grid.addWidget(self.but_update_table_3,3,2)
-            self.lay_grid.addWidget(self.but_save_table_3,3,3)
-            self.lay_grid.addLayout(self.lay_delete_3,3,4)
-            self.lay_grid.addLayout(self.lay_add_materials,3,5)
+            self.lay3_window3.addWidget(self.table_3,1,0)
+            self.lay3_window3.addWidget(self.but_update_table_3,0,0)
+            self.lay3_window3.addWidget(self.but_save_table_3,0,1)
+            self.lay3_window3.addLayout(self.lay_delete_3,2,0)
+            self.lay3_window3.addLayout(self.lay_add_materials,2,1)
 
 
 
@@ -288,9 +334,11 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.table_4.setFixedSize(600,150)
             self.but_update_table_4 = QtWidgets.QPushButton('обновить orders')
             self.but_update_table_4.clicked.connect(self.update_orders)
+            self.but_update_table_4.setFixedSize(150,30)
 
             self.but_save_table_4 = QtWidgets.QPushButton('Сохранить изменения')
             self.but_save_table_4.clicked.connect(self.update_table_4)
+            self.but_save_table_4.setFixedSize(150,30)
             ##types_of_works
             self.text_sort_types_of_works = QtWidgets.QLabel('Сортировать по типам работ')
             self.comb_box_table_4 = QtWidgets.QComboBox()
@@ -301,6 +349,7 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.comb_box_table_4_1 = QtWidgets.QComboBox()
             self.comb_box_table_4_1.addItems(['1', '2', '3', '4', '5'])
             self.comb_box_table_4_1.textActivated.connect(self.update_orders_2_1)
+
             ##brigades
             self.text_sort_brigades = QtWidgets.QLabel('Сортировать по бригадам')
             self.comb_box_table_4_2 = QtWidgets.QComboBox()
@@ -311,7 +360,9 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.lay_delete_4 = QtWidgets.QVBoxLayout()
             self.lay_delete_4.setSpacing(0)
             self.delete_table_4 = QtWidgets.QPushButton('Удалить данные')
+            self.delete_table_4.setFixedSize(150,30)
             self.delete_table_4_line_table = QtWidgets.QLineEdit('Введите code_customer для удаления')
+            self.delete_table_4_line_table.setFixedSize(150,30)
             self.delete_table_4.clicked.connect(self.delete_table_4_1)
             self.lay_delete_4.addWidget(self.delete_table_4)
             self.lay_delete_4.addWidget(self.delete_table_4_line_table)
@@ -319,6 +370,7 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.lay_add_orders = QtWidgets.QVBoxLayout()
             self.lay_add_orders.setSpacing(0)
             self.add_table_4 = QtWidgets.QPushButton('Добавить запись в orders')
+            self.add_table_4.setFixedSize(150,30)
             self.add_table_4.clicked.connect(self.add_table_4_1)
 
             self.add_table_4_zapis_1 = QtWidgets.QLineEdit('code_customer')
@@ -341,17 +393,17 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.lay_add_orders.addWidget(self.add_table_4_zapis_8)
             self.lay_add_orders.addWidget(self.add_table_4_zapis_9)
 
-            self.lay_grid.addWidget(self.table_4,4,1)
-            self.lay_grid.addWidget(self.but_update_table_4,4,2)
-            self.lay_grid.addWidget(self.but_save_table_4,4,3)
-            self.lay_grid.addWidget(self.text_sort_types_of_works,4,4)
-            self.lay_grid.addWidget(self.comb_box_table_4,4,5)
-            self.lay_grid.addWidget(self.text_sort_kakazhiki,4,6)
-            self.lay_grid.addWidget(self.comb_box_table_4_1,4,7)
-            self.lay_grid.addWidget(self.text_sort_brigades,4,8)
-            self.lay_grid.addWidget(self.comb_box_table_4_2,4,9)
-            self.lay_grid.addLayout(self.lay_delete_4,4,10)
-            self.lay_grid.addLayout(self.lay_add_orders,4,11)
+            self.lay4_window4.addWidget(self.table_4,1,0)
+            self.lay4_window4.addWidget(self.but_update_table_4,0,0)
+            self.lay4_window4.addWidget(self.but_save_table_4,0,1)
+            self.lay4_window4.addWidget(self.text_sort_types_of_works,2,0)
+            self.lay4_window4.addWidget(self.comb_box_table_4,2,1)
+            self.lay4_window4.addWidget(self.text_sort_kakazhiki,2,2)
+            self.lay4_window4.addWidget(self.comb_box_table_4_1,2,3)
+            self.lay4_window4.addWidget(self.text_sort_brigades,2,4)
+            self.lay4_window4.addWidget(self.comb_box_table_4_2,2,5)
+            self.lay4_window4.addLayout(self.lay_delete_4,2,6)
+            self.lay4_window4.addLayout(self.lay_add_orders,2,7)
 
 
             self.table_5 = QtWidgets.QTableWidget()
@@ -361,15 +413,19 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.table_5.setFixedSize(600,150)
             self.but_update_table_5 = QtWidgets.QPushButton('обновить positions')
             self.but_update_table_5.clicked.connect(self.update_positions)
+            self.but_update_table_5.setFixedSize(150,30)
 
             self.but_save_table_5 = QtWidgets.QPushButton('Сохранить изменения')
             self.but_save_table_5.clicked.connect(self.update_table_5)
+            self.but_save_table_5.setFixedSize(150,30)
 
             ##delete_table_5
             self.lay_delete_5 = QtWidgets.QVBoxLayout()
             self.lay_delete_5.setSpacing(0)
             self.delete_table_5 = QtWidgets.QPushButton('Удалить данные')
+            self.delete_table_5.setFixedSize(150,30)
             self.delete_table_5_line_table = QtWidgets.QLineEdit('Введите code_position для удаления')
+            self.delete_table_5_line_table.setFixedSize(150,30)
             self.delete_table_5.clicked.connect(self.delete_table_5_1)
             self.lay_delete_5.addWidget(self.delete_table_5)
             self.lay_delete_5.addWidget(self.delete_table_5_line_table)
@@ -393,11 +449,11 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
 
 
 
-            self.lay_grid.addWidget(self.table_5,5,1)
-            self.lay_grid.addWidget(self.but_update_table_5,5,2)
-            self.lay_grid.addWidget(self.but_save_table_5,5,3)
-            self.lay_grid.addLayout(self.lay_delete_5,5,4)
-            self.lay_grid.addLayout(self.lay_add_positions,5,5)
+            self.lay5_window5.addWidget(self.table_5,1,0)
+            self.lay5_window5.addWidget(self.but_update_table_5,0,0)
+            self.lay5_window5.addWidget(self.but_save_table_5,0,1)
+            self.lay5_window5.addLayout(self.lay_delete_5,2,0)
+            self.lay5_window5.addLayout(self.lay_add_positions,2,1)
 
             self.table_6 = QtWidgets.QTableWidget()
             self.table_6.setColumnCount(8)
@@ -406,9 +462,11 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.table_6.setFixedSize(600,150)
             self.but_update_table_6 = QtWidgets.QPushButton('обновить staff')
             self.but_update_table_6.clicked.connect(self.update_staff)
+            self.but_update_table_6.setFixedSize(150,30)
 
             self.but_save_table_6 = QtWidgets.QPushButton('Сохранить изменения')
             self.but_save_table_6.clicked.connect(self.update_table_6)
+            self.but_save_table_6.setFixedSize(150,30)
 
             self.text_sort_doljnosti = QtWidgets.QLabel('Сортировать по должностям')
             self.but_comb_box_table_6 = QtWidgets.QPushButton('test1')
@@ -420,6 +478,7 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.lay_delete_6 = QtWidgets.QVBoxLayout()
             self.lay_delete_6.setSpacing(0)
             self.delete_table_6 = QtWidgets.QPushButton('Удалить данные')
+            self.delete_table_6.setFixedSize(150,30)
             self.delete_table_6_line_table = QtWidgets.QLineEdit('Введите code_staff для удаления')
             self.delete_table_6.clicked.connect(self.delete_table_6_1)
             self.lay_delete_6.addWidget(self.delete_table_6)
@@ -450,13 +509,13 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
 
 
 
-            self.lay_grid.addWidget(self.table_6,6,1)
-            self.lay_grid.addWidget(self.but_update_table_6,6,2)
-            self.lay_grid.addWidget(self.but_save_table_6,6,3)
-            self.lay_grid.addWidget(self.text_sort_doljnosti, 6, 4)
-            self.lay_grid.addWidget(self.comb_box_table_6,6,5)
-            self.lay_grid.addLayout(self.lay_delete_6,6,6)
-            self.lay_grid.addLayout(self.lay_add_staff,6,7)
+            self.lay6_window6.addWidget(self.table_6,1,0)
+            self.lay6_window6.addWidget(self.but_update_table_6,0,0)
+            self.lay6_window6.addWidget(self.but_save_table_6,0,1)
+            self.lay6_window6.addWidget(self.text_sort_doljnosti, 1, 2)
+            self.lay6_window6.addWidget(self.comb_box_table_6,1,3)
+            self.lay6_window6.addLayout(self.lay_delete_6,2,0)
+            self.lay6_window6.addLayout(self.lay_add_staff,2,1)
 
 
             self.table_7 = QtWidgets.QTableWidget()
@@ -465,16 +524,19 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
             self.table_7.setHorizontalHeaderLabels(['code_type', 'name', 'description', 'coast_of_work', 'code_material_1', 'code_material_2', 'code_material_3'])
             self.table_7.setFixedSize(600,150)
             self.but_update_table_7 = QtWidgets.QPushButton('обновить types_of_works')
+            self.but_update_table_7.setFixedSize(150,30)
             self.but_update_table_7.clicked.connect(self.update_types_of_works)
 
             self.but_save_table_7 = QtWidgets.QPushButton('Сохранить изменения')
             self.but_save_table_7.clicked.connect(self.update_table_7)
-
+            self.but_save_table_7.setFixedSize(150,30)
             ##delete_table_7
             self.lay_delete_7 = QtWidgets.QVBoxLayout()
             self.lay_delete_7.setSpacing(0)
             self.delete_table_7 = QtWidgets.QPushButton('Удалить данные')
+            self.delete_table_7.setFixedSize(150,30)
             self.delete_table_7_line_table = QtWidgets.QLineEdit('Введите code_type для удаления')
+            self.delete_table_7_line_table.setFixedSize(150,30)
             self.delete_table_7.clicked.connect(self.delete_table_7_1)
             self.lay_delete_7.addWidget(self.delete_table_7)
             self.lay_delete_7.addWidget(self.delete_table_7_line_table)
@@ -504,21 +566,67 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
 
 
 
-            self.lay_grid.addWidget(self.table_7,7,1)
-            self.lay_grid.addWidget(self.but_update_table_7,7,2)
-            self.lay_grid.addWidget(self.but_save_table_7,7,3)
-            self.lay_grid.addLayout(self.lay_delete_7,7,4)
-            self.lay_grid.addLayout(self.lay_add_types_of_works,7,5)
+            self.lay7_window7.addWidget(self.table_7,1,0)
+            self.lay7_window7.addWidget(self.but_update_table_7,0,0)
+            self.lay7_window7.addWidget(self.but_save_table_7,0,1)
+            self.lay7_window7.addLayout(self.lay_delete_7,2,0)
+            self.lay7_window7.addLayout(self.lay_add_types_of_works,2,1)
 
 
             ####end
-            self.new_scrol = QtWidgets.QScrollArea()
-            self.new_scrol.setWidget(self.widget_info)
-            self.new_scrol.setWidgetResizable(True)
+            #self.new_scrol = QtWidgets.QScrollArea()
+            #self.new_scrol.setWidget(self.widget_info)
+            #self.new_scrol.setWidgetResizable(True)
 
-            self.all_info.setCentralWidget(self.new_scrol)
-            self.all_info.resize(800,600)
-            self.all_info.show()
+            #self.all_info.setCentralWidget(self.new_scrol)
+            #self.all_info.resize(800, 600)
+            #self.all_info.show()
+            self.scroll_1 = QtWidgets.QScrollArea()
+            self.scroll_1.setWidget(self.window1)
+            self.scroll_1.setWidgetResizable(True)
+            self.main_1.setCentralWidget(self.scroll_1)
+
+            self.scroll_2 = QtWidgets.QScrollArea()
+            self.scroll_2.setWidget(self.window2)
+            self.scroll_2.setWidgetResizable(True)
+            self.main_2.setCentralWidget(self.scroll_2)
+
+            self.scroll_3 = QtWidgets.QScrollArea()
+            self.scroll_3.setWidget(self.window3)
+            self.scroll_3.setWidgetResizable(True)
+            self.main_3.setCentralWidget(self.scroll_3)
+
+            self.scroll_4 = QtWidgets.QScrollArea()
+            self.scroll_4.setWidget(self.window4)
+            self.scroll_4.setWidgetResizable(True)
+            self.main_4.setCentralWidget(self.scroll_4)
+
+            self.scroll_5 = QtWidgets.QScrollArea()
+            self.scroll_5.setWidget(self.window5)
+            self.scroll_5.setWidgetResizable(True)
+            self.main_5.setCentralWidget(self.scroll_5)
+
+            self.scroll_6 = QtWidgets.QScrollArea()
+            self.scroll_6.setWidget(self.window6)
+            self.scroll_6.setWidgetResizable(True)
+            self.main_6.setCentralWidget(self.scroll_6)
+
+            self.scroll_7 = QtWidgets.QScrollArea()
+            self.scroll_7.setWidget(self.window7)
+            self.scroll_7.setWidgetResizable(True)
+            self.main_7.setCentralWidget(self.scroll_7)
+
+            self.tab = QtWidgets.QTabWidget()
+            self.tab.addTab(self.main_1,'brigades')
+            self.tab.addTab(self.main_2, 'customers')
+            self.tab.addTab(self.main_3, 'materials')
+            self.tab.addTab(self.main_4, 'orders')
+            self.tab.addTab(self.main_5, 'positions')
+            self.tab.addTab(self.main_6, 'staff')
+            self.tab.addTab(self.main_7, 'types_of_works')
+            self.tab.resize(800,600)
+            self.tab.show()
+
         except:
             self.eroros('Запустите базу данных',window=self.widget)
 
@@ -870,7 +978,7 @@ class Main_window(QtWidgets.QMainWindow,Ez_info_1):
 
         self.but_zastavka = QtWidgets.QPushButton('Заставка')
         self.but_zastavka.clicked.connect(self.zastavka)
-
+        
         self.info_aboyt_programm = QtWidgets.QLabel('')
 
         self.lay3.addWidget(self.but_about_program)
